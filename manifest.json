@@ -1,32 +1,115 @@
 {
+  "id": "/Expense-tracker-/",
   "name": "Expense Tracker — Personal Finance & Savings",
   "short_name": "Expense Tracker",
-  "description": "Smart monthly income, daily expense, category breakdown, and net savings tracker.",
-  "start_url": "./index.html",
+  "description": "Smart monthly income, daily expense, category breakdown, and net savings tracker. Works offline.",
+  "lang": "en-IN",
+  "dir": "ltr",
+  "start_url": "./index.html?source=pwa",
   "scope": "./",
   "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
   "orientation": "portrait-primary",
   "background_color": "#f8fafc",
   "theme_color": "#4f46e5",
-  "categories": ["finance", "productivity", "utilities"],
+  "categories": [
+    "finance",
+    "productivity",
+    "utilities"
+  ],
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "./apple-touch-icon.png",
       "sizes": "180x180",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "./icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "./icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "./screenshots/01-dashboard.png",
+      "sizes": "828x1792",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Dashboard with income, expenses and savings"
+    },
+    {
+      "src": "./screenshots/02-add-entry.png",
+      "sizes": "828x1792",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Add a new expense or income entry"
+    },
+    {
+      "src": "./screenshots/03-categories.png",
+      "sizes": "828x1792",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Category-wise expenses"
+    },
+    {
+      "src": "./screenshots/04-totals.png",
+      "sizes": "828x1792",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Monthly totals and net savings"
+    },
+    {
+      "src": "./screenshots/05-charts.png",
+      "sizes": "828x1792",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Charts and comparison"
+    },
+    {
+      "src": "./screenshots/06-history.png",
+      "sizes": "828x1792",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Transaction history"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Add Expense",
+      "short_name": "Add",
+      "description": "Add a new expense entry",
+      "url": "./index.html?action=add",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
     }
   ]
 }
