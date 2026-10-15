@@ -1,19 +1,24 @@
 /* Expense Tracker service worker — offline support (cache-first for app shell) */
-const CACHE = 'expense-tracker-v1';
+const CACHE = 'expense-tracker-v2';
 const ASSETS = [
   './',
   './index.html',
+  './app.js',
+  './styles.css',
   './manifest.json',
   './icon-192.png',
   './icon-512.png',
   './apple-touch-icon.png',
-  './icons/maskable-192.png',
-  './icons/maskable-512.png'
+  './maskable-192.png',
+  './maskable-512.png'
 ];
 
 self.addEventListener('install', (event) => {
+  // Add files one by one so a single missing file can never break the install
   event.waitUntil(
-    caches.open(CACHE).then((cache) => cache.addAll(ASSETS)).then(() => self.skipWaiting())
+    caches.open(CACHE)
+      .then((cache) => Promise.all(ASSETS.map((url) => cache.add(url).catch(() => {}))))
+      .then(() => self.skipWaiting())
   );
 });
 

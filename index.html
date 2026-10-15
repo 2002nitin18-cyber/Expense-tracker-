@@ -619,11 +619,18 @@
 
     <script src="./app.js"></script>
     <script>
-      // App shortcut (long-press icon -> "Add Expense"): focus the amount field
+      // App shortcut ("Add Expense") and Share Target: open the form ready to type
       (function () {
         try {
-          if (new URLSearchParams(location.search).get('action') === 'add') {
+          var q = new URLSearchParams(location.search);
+          var shared = [q.get('title'), q.get('text'), q.get('url')]
+            .filter(function (v) { return v && v.trim(); }).join(' - ').slice(0, 200);
+          if (q.get('action') === 'add' || shared) {
             window.addEventListener('load', function () {
+              if (shared) {
+                var note = document.getElementById('noteInput');
+                if (note) note.value = shared;   // shared text becomes the note
+              }
               var el = document.getElementById('amountInput');
               if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); el.focus(); }
             });
